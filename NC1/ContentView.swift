@@ -53,7 +53,7 @@ struct ContentView: View {
 
 
 
-//입력된 거 보여주는 '오늘의 기록' -> 지금은 없음
+//입력된 거 보여주는 '오늘의 기록'
 struct Menucell: View {
     let menu: TodayRecords
     
@@ -61,6 +61,13 @@ struct Menucell: View {
         Text(menu.menu1)
         Text(menu.menu2)
         Text(menu.menu3)
+        Text(menu.condition1)
+        Text(menu.condition2)
+        Text(menu.study)
+        Text(menu.studytime)
+        Text(menu.exercise)
+        Text(menu.exercisetime)
+        
     }
 }
 
@@ -128,6 +135,38 @@ struct AddMenu: View {
                             })
                             
                         })
+                    
+                    Section(header: Text("공부")
+                        .font(.system(size:25))
+                        .bold()
+                        .foregroundStyle(.black), content: {
+                            
+                            HStack(content: {
+                                Text("공부:")
+                                TextField("", text: $study)
+                            
+                                TextField("공부시간", text: $studytime)
+                            })
+                            
+                        })
+                    
+                    Section(header: Text("운동")
+                        .font(.system(size:25))
+                        .bold()
+                        .foregroundStyle(.black), content: {
+                            
+                            HStack(content: {
+                                Text("운동:")
+                                TextField("", text: $exercise)
+                            
+                                TextField("운동시간", text: $exercisetime)
+                            })
+                            
+                        })
+                    
+                    
+                    
+                    
                 }
                 Button("오늘의 하루 보고하기"){
                     var menu = TodayRecords(menu1: menu1, menu2: menu2, menu3: menu3, condition1: condition1, condition2: condition2, study: study, studytime: studytime, exercise: exercise, exercisetime: exercisetime, today: Date())
