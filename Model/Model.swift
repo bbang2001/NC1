@@ -12,23 +12,27 @@ import SwiftData
 class  TodayRecords {
     var menu1: String
     var menu2: String
-    var menu3: String
+    var menu3: String 
     var condition1: String
     var condition2: String
-    var study: String?
-    var studytime: String?
-    var exercise: String?
-    var exercisetime: String?
+    var study: String
+    var studytime: String
+    var exercise: String
+    var exercisetime: String
     var today: Date
     
-    init ( menu1 : String , menu2 : String, menu3: String, condition1: String, condition2: String) {
+    init(menu1: String, menu2: String, menu3: String, condition1: String, condition2: String, study: String, studytime: String, exercise: String, exercisetime: String, today: Date) {
         self.menu1 = menu1
         self.menu2 = menu2
         self.menu3 = menu3
         self.condition1 = condition1
         self.condition2 = condition2
-        
-        self.today = Date()
+        self.study = study
+        self.studytime = studytime
+        self.exercise = exercise
+        self.exercisetime = exercisetime
+        self.today = today
     }
 }
+
 

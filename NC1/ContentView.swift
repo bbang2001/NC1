@@ -130,7 +130,9 @@ struct AddMenu: View {
                         })
                 }
                 Button("오늘의 하루 보고하기"){
-                    let menu = TodayRecords(menu1: menu1, menu2: menu2, menu3: menu3, condition1: condition1, condition2: condition2)
+                    var menu = TodayRecords(menu1: menu1, menu2: menu2, menu3: menu3, condition1: condition1, condition2: condition2, study: study, studytime: studytime, exercise: exercise, exercisetime: exercisetime, today: Date())
+
+                    
                     context.insert(menu)
                     let _: ()? = try? context.save()
                     dismiss()
@@ -152,6 +154,7 @@ struct AddMenu: View {
     }
     
     
+    
 }
 
 struct UpdateMenu: View {
@@ -166,10 +169,10 @@ struct UpdateMenu: View {
                 TextField("저녁", text: $menu.menu3)
                 TextField("몸", text: $menu.condition1)
                 TextField("기분", text: $menu.condition2)
-                TextField("공부", text: $menu.condition2)
-                TextField("공부시간", text: $menu.condition2)
-                TextField("운동", text: $menu.condition2)
-                TextField("운동시간", text: $menu.condition2)
+                TextField("공부", text: $menu.study)
+                TextField("공부시간", text: $menu.studytime)
+                TextField("운동", text: $menu.exercise)
+                TextField("운동시간", text: $menu.exercisetime)
             }
             .navigationTitle("Update Menu")
             .navigationBarTitleDisplayMode(.large)
