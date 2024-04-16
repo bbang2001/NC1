@@ -89,81 +89,65 @@ struct AddMenu: View {
     
     var body: some View {
         NavigationStack{
-            Form{
-                Section(header: Text("밥")
-                    .font(.system(size:25))
-                    .bold()
-                    .foregroundStyle(.black), content: {
+            VStack{
+                Form{
+                    Section(header: Text("밥")
+                        .font(.system(size:25))
+                        .bold()
+                        .foregroundStyle(.black), content: {
+                            
+                            HStack(content: {
+                                Text("아침:")
+                                TextField("", text: $menu1)
+                            })
+                            
+                            HStack(content: {
+                                Text("점심:")
+                                TextField("", text: $menu2)
+                            })
+                            HStack(content: {
+                                Text("저녁:")
+                                TextField("", text: $menu3)
+                            })
+                            
+                        })
                     
-                    HStack(content: {
-                        Text("아침:")
-                        TextField("", text: $menu1)
-                    })
+                    Section(header: Text("컨디션")
+                        .font(.system(size:25))
+                        .bold()
+                        .foregroundStyle(.black), content: {
+                            
+                            HStack(content: {
+                                Text("몸:")
+                                TextField("", text: $condition1)
+                            })
+                            
+                            HStack(content: {
+                                Text("기분:")
+                                TextField("", text: $condition2)
+                            })
+                            
+                        })
+                }
+                Button("오늘의 하루 보고하기"){
+                    let menu = TodayRecords(menu1: menu1, menu2: menu2, menu3: menu3, condition1: condition1, condition2: condition2)
+                    context.insert(menu)
+                    let _: ()? = try? context.save()
+                    dismiss()
                     
-                    HStack(content: {
-                        Text("점심:")
-                        TextField("", text: $menu2)
-                    })
-                    HStack(content: {
-                        Text("저녁:")
-                        TextField("", text: $menu3)
-                    })
-             
-            })
-                
-                Section(header: Text("컨디션")
-                    .font(.system(size:25))
-                    .bold()
-                    .foregroundStyle(.black), content: {
-                    
-                    HStack(content: {
-                        Text("몸:")
-                        TextField("", text: $condition1)
-                    })
-                    
-                    HStack(content: {
-                        Text("기분:")
-                        TextField("", text: $condition2)
-                    })
-             
-            })
-                
-                
-                
-                
-                        }
-            
+                }
+                .padding()
+                .frame(width:320, height: 70)
+                .background(.green)
+                .cornerRadius(13)
+                .font(.system(size:25))
+                .bold()
+                .foregroundColor(.white)
+            }
             .navigationTitle("\(Date(), formatter:dateformat01)")
             .navigationBarTitleDisplayMode(.large)
+
             
-            //
-            //돌아가신 코드
-//            .toolbar{
-//                ToolbarItemGroup(placement: .topBarLeading){
-//                    Button("뒤로가기"){
-//                        dismiss()
-//                    }
-//                }
-//                
-//                
-//                ToolbarItemGroup(placement: .bottomBar){
-//                    Button("오늘의 하루 보고하기"){
-//                        let menu = TodayRecords(menu1: menu1, menu2: menu2, menu3: menu3, condition1: condition1, condition2: condition2, study: study, studytime: studytime, exercise: exercise, exercisetime: exercisetime)
-//                        context.insert(menu)
-//                        let _: ()? = try? context.save()
-//                        dismiss()
-//                    }
-//                    .padding()
-//                    .frame(width:320, height: 70)
-//                    .background(.green)
-//                    .cornerRadius(13)
-//                    .font(.system(size:25))
-//                    .bold()
-//                    .foregroundColor(.white)
-//                }
-//                
-//                
-//            }
         }
     }
     
@@ -214,9 +198,9 @@ struct StoredDateView: View {
         
             
             List {
-                ForEach(MenuList) { menu in
-                    if isSameDay(date1: currentDate, date2: menu.today){
-                        Menucell(menu: menu)
+                ForEach(MenuList) { record in
+                    if isSameDay(date1: currentDate, date2: record.today){
+                        Menucell(menu: record)
                         // on tap to update the selected data
                         //                        .onTapGesture {
                         //                            MenuToUpdate = menu
