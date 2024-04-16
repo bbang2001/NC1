@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-   // @Environment(\.modelContext) var context
+    // @Environment(\.modelContext) var context
     @State private var showAddSheet = false
     
     @Query(sort: \TodayRecords.menu1) var TodayRecordsList: [TodayRecords]
- //   @State private var MenuToUpdate : Menu?
+    //   @State private var MenuToUpdate : Menu?
     
     var body: some View {
         
@@ -38,10 +38,10 @@ struct ContentView: View {
                 
             }
             .sheet(isPresented: $showAddSheet) {AddMenu()}
-        //    .sheet(item: $MenuToUpdate) { menu in
-        //        UpdateMenu(menu: menu)
-                
-          //  }
+            //    .sheet(item: $MenuToUpdate) { menu in
+            //        UpdateMenu(menu: menu)
+            
+            //  }
             
             
         }
@@ -52,24 +52,6 @@ struct ContentView: View {
 
 
 
-
-//입력된 거 보여주는 '오늘의 기록'
-struct Menucell: View {
-    let menu: TodayRecords
-    
-    var body: some View {
-        Text(menu.menu1)
-        Text(menu.menu2)
-        Text(menu.menu3)
-        Text(menu.condition1)
-        Text(menu.condition2)
-        Text(menu.study)
-        Text(menu.studytime)
-        Text(menu.exercise)
-        Text(menu.exercisetime)
-        
-    }
-}
 
 
 //입력 창
@@ -144,7 +126,7 @@ struct AddMenu: View {
                             HStack(content: {
                                 Text("공부:")
                                 TextField("", text: $study)
-                            
+                                
                                 TextField("공부시간", text: $studytime)
                             })
                             
@@ -158,7 +140,7 @@ struct AddMenu: View {
                             HStack(content: {
                                 Text("운동:")
                                 TextField("", text: $exercise)
-                            
+                                
                                 TextField("운동시간", text: $exercisetime)
                             })
                             
@@ -169,8 +151,8 @@ struct AddMenu: View {
                     
                 }
                 Button("오늘의 하루 보고하기"){
-                    var menu = TodayRecords(menu1: menu1, menu2: menu2, menu3: menu3, condition1: condition1, condition2: condition2, study: study, studytime: studytime, exercise: exercise, exercisetime: exercisetime, today: Date())
-
+                    let menu = TodayRecords(menu1: menu1, menu2: menu2, menu3: menu3, condition1: condition1, condition2: condition2, study: study, studytime: studytime, exercise: exercise, exercisetime: exercisetime, today: Date())
+                    
                     
                     context.insert(menu)
                     let _: ()? = try? context.save()
@@ -187,7 +169,7 @@ struct AddMenu: View {
             }
             .navigationTitle("\(Date(), formatter:dateformat01)")
             .navigationBarTitleDisplayMode(.large)
-
+            
             
         }
     }
@@ -223,41 +205,6 @@ struct UpdateMenu: View {
                 }
             }
         }
-    }
-}
-
-
-
-
-//추가한
-
-struct StoredDateView: View {
-    @Binding var currentDate: Date
-    @Environment(\.modelContext) var context
-    @Query(sort: \TodayRecords.menu1) var MenuList: [TodayRecords]
-    
-    var body: some View{
-        
-            
-            List {
-                ForEach(MenuList) { record in
-                    if isSameDay(date1: currentDate, date2: record.today){
-                        Menucell(menu: record)
-                        // on tap to update the selected data
-                        //                        .onTapGesture {
-                        //                            MenuToUpdate = menu
-                        //                        }
-                    }
-                    
-                }
-            }
-        
-    }
-    
-    func isSameDay(date1: Date, date2: Date)->Bool{
-        let calendar = Calendar.current
-        
-        return calendar.isDate(date1, inSameDayAs: date2)
     }
 }
 

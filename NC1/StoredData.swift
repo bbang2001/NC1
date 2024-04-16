@@ -6,13 +6,35 @@
 //
 
 import SwiftUI
+import SwiftData
+//추가한
 
-struct StoredData: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct StoredDateView: View {
+    @Binding var currentDate: Date
+    @Environment(\.modelContext) var context
+    @Query(sort: \TodayRecords.menu1) var MenuList: [TodayRecords]
+    
+    var body: some View{
+        
+        ScrollView{
+            ForEach(MenuList) { record in
+                if isSameDay(date1: currentDate, date2: record.today){
+                    Menucell(menu: record)
+                    // on tap to update the selected data
+                    //                        .onTapGesture {
+                    //                            MenuToUpdate = menu
+                    //                        }
+                }
+                
+            }
+        }
+        
+        
     }
-}
-
-#Preview {
-    StoredData()
+    
+    func isSameDay(date1: Date, date2: Date)->Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
+    }
 }
