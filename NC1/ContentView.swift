@@ -135,6 +135,9 @@ struct AddMenu: View {
             
             .navigationTitle("\(Date(), formatter:dateformat01)")
             .navigationBarTitleDisplayMode(.large)
+            
+            //
+            //돌아가신 코드
 //            .toolbar{
 //                ToolbarItemGroup(placement: .topBarLeading){
 //                    Button("뒤로가기"){
