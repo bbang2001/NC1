@@ -3,4 +3,52 @@
    uuid = "BDB0F858-141D-4879-8E9B-8AAA2FE433B1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99A1960A-C6C4-4C13-BE76-607F24C84B74"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NC1/StoredData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "StoredDateView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "99A1960A-C6C4-4C13-BE76-607F24C84B74 - d25304ce1b447f5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NC1.StoredDateView.context.getter : SwiftData.ModelContext"
+                  moduleName = "NC1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ri/Desktop/NC1/NC1/StoredData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "99A1960A-C6C4-4C13-BE76-607F24C84B74 - 98a61e904152b1d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of NC1.StoredDateView.init(currentDate: SwiftUI.Binding&lt;Foundation.Date&gt;, context: SwiftUI.Environment&lt;SwiftData.ModelContext&gt;, _MenuList: _SwiftData_SwiftUI.Query&lt;NC1.TodayRecords, Swift.Array&lt;NC1.TodayRecords&gt;&gt;) -&gt; NC1.StoredDateView"
+                  moduleName = "NC1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ri/Desktop/NC1/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

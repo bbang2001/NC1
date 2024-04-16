@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 //입력된 거 보여주는 '오늘의 기록'
 struct Menucell: View {

@@ -178,35 +178,40 @@ struct AddMenu: View {
     
 }
 
-struct UpdateMenu: View {
-    @Environment(\.dismiss) private var dismiss
-    @Bindable var menu: TodayRecords //바인더블은 뭐지
-    
-    var body: some View {
-        NavigationStack{
-            Form{
-                TextField("아침", text: $menu.menu1)
-                TextField("점심", text: $menu.menu2)
-                TextField("저녁", text: $menu.menu3)
-                TextField("몸", text: $menu.condition1)
-                TextField("기분", text: $menu.condition2)
-                TextField("공부", text: $menu.study)
-                TextField("공부시간", text: $menu.studytime)
-                TextField("운동", text: $menu.exercise)
-                TextField("운동시간", text: $menu.exercisetime)
-            }
-            .navigationTitle("Update Menu")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar{
-                ToolbarItemGroup(placement: .topBarTrailing){
-                    Button("업데이트") {
-                        dismiss()
-                    }
-                }
-            }
-        }
-    }
-}
+
+
+
+
+//이 친구는 나중에 수정기능 쓸 때 넣을 것입니다.
+//struct UpdateMenu: View {
+//    @Environment(\.dismiss) private var dismiss
+//    @Bindable var menu: TodayRecords //바인더블은 뭐지
+//    
+//    var body: some View {
+//        NavigationStack{
+//            Form{
+//                TextField("아침", text: $menu.menu1)
+//                TextField("점심", text: $menu.menu2)
+//                TextField("저녁", text: $menu.menu3)
+//                TextField("몸", text: $menu.condition1)
+//                TextField("기분", text: $menu.condition2)
+//                TextField("공부", text: $menu.study)
+//                TextField("공부시간", text: $menu.studytime)
+//                TextField("운동", text: $menu.exercise)
+//                TextField("운동시간", text: $menu.exercisetime)
+//            }
+//            .navigationTitle("Update Menu")
+//            .navigationBarTitleDisplayMode(.large)
+//            .toolbar{
+//                ToolbarItemGroup(placement: .topBarTrailing){
+//                    Button("업데이트") {
+//                        dismiss()
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
 
 
