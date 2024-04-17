@@ -139,7 +139,7 @@ struct CustomDatePicker: View {
                     ForEach(MenuList) { record in
                         if isSameDay(date1: value.date, date2: record.today){
                             Circle()    //도장
-                                .fill(isSameDay(date1: record.today, date2: value.date ) ? .gray :Color(.green))
+                                .fill(isSameDay(date1: record.today, date2: currentDate ) ? .white :Color(.green))
                                 
                                     .frame(width: 8, height: 8)
                                 
