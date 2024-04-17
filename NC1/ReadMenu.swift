@@ -21,10 +21,11 @@ struct ReadMenu: View {
                     .font(.system(size:25))
                     .bold()
                     .foregroundStyle(.black), content: {
-                    
+                        
                             Text("  아침: \(menu.menu1)")
                             .frame(width: 300, height: 35, alignment: .leading)
                             .border(Color.gray)
+                            
                             Text("  점심: \(menu.menu2)")
                             .frame(width: 300, height: 35, alignment: .leading)
                             .border(Color.gray)

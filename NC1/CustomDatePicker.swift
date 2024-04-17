@@ -6,25 +6,29 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CustomDatePicker: View {
-   // @Binding var currentDate: Date
     @State var currentDate : Date = Date()
     
     //Month update on arrow button clicks-
     @State var currentMonth: Int = 0
+    @Environment(\.modelContext) var context
+    @Query(sort: \TodayRecords.menu1) var MenuList: [TodayRecords]
     
     var body: some View {
         
         
         
-        VStack(spacing: 35){
+        VStack(spacing: 20){
+
+            
             
             let days: [String] =
             ["일","월","화","수","목","금","토"]
             
             
-            HStack(spacing: 20){
+            HStack(spacing: 15){
                 VStack(alignment: .leading, spacing: 10) {
                     
                     Text(extraData()[0])
@@ -47,7 +51,7 @@ struct CustomDatePicker: View {
                     Image(systemName: "chevron.left")
                         .font(.title2)
                         .tint(.green)
-                }
+                } //달력버튼
                 
                 Button{
                     
@@ -59,7 +63,7 @@ struct CustomDatePicker: View {
                     Image(systemName: "chevron.right")
                         .font(.title2)
                         .tint(.green)
-                }
+                } //달력버튼
                 
             }
             .padding(.horizontal)
@@ -74,18 +78,16 @@ struct CustomDatePicker: View {
                         .frame(maxWidth: .infinity)
                     
                 }
-            }
+            } //요일
             
             //Dates..
             //Lazy Grid..
-            let columns = Array(repeating: GridItem(.flexible()),count: 7)
+            let columns = Array(repeating: GridItem(.flexible()),count: 7) //정렬
+
             
-            LazyVGrid(columns: columns, spacing: 15) {
+            LazyVGrid(columns: columns, spacing: 10) {
                 
                 ForEach(extractDate()){value in
-                    
-                    //     Text("\(value.day)")
-                    //      .font(.title3.bold())
                     
                     CardView(value: value)
                         .background(
@@ -94,6 +96,9 @@ struct CustomDatePicker: View {
                                 .fill(Color(.green))
                                 .padding(.horizontal,8)
                                 .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+                            
+  
+                            
                         )
                         .onTapGesture {
                             currentDate = value.date
@@ -114,25 +119,33 @@ struct CustomDatePicker: View {
     }
     
     @ViewBuilder
-    func CardView(value: DateValue)-> some View{
+    func CardView(value: DateValue)-> some View {
         
-        VStack{
+        VStack {
             if value.day != -1{    //마이너스 없애줌
-                if let task = tasks.first(where: { task in
+                if let records = MenuList.first(where: { records in
                     
-                    return isSameDay(date1: task.taskDate, date2: value.date)
+                    return isSameDay(date1: records.today, date2: value.date)
                 }){
                     
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .primary)
+                        .foregroundColor(isSameDay(date1: records.today, date2: currentDate) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     
                     Spacer()
                     
-                    Circle()    //도장
-                        .fill(isSameDay(date1: task.taskDate, date2: currentDate ) ? .white :Color(.green))
-                        .frame(width: 8, height: 8)
+                    
+                    ForEach(MenuList) { record in
+                        if isSameDay(date1: value.date, date2: record.today){
+                            Circle()    //도장
+                                .fill(isSameDay(date1: record.today, date2: value.date ) ? .gray :Color(.green))
+                                
+                                    .frame(width: 8, height: 8)
+                                
+                        }
+                    }
+            
                 }
                 else{
                     Text("\(value.day)")
@@ -146,6 +159,7 @@ struct CustomDatePicker: View {
         }
         .padding(.vertical,8)
         .frame(height: 60, alignment: .top)
+        
     }
     
     
@@ -215,6 +229,13 @@ struct CustomDatePicker: View {
 #Preview {
     Content2View()
 }
+
+
+
+
+
+
+
 
 // extending date to get current month dates...
 extension Date{
