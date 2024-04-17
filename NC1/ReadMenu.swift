@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 //입력된 거 보여주는
-struct Menucell: View {
+struct ReadMenu: View {
     let menu: TodayRecords
     
     var body: some View {
