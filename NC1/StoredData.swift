@@ -16,18 +16,15 @@ struct StoredDateView: View {
     
     var body: some View{
         
-        ScrollView{
-            ForEach(MenuList) { record in
-                if isSameDay(date1: currentDate, date2: record.today){
-                    Menucell(menu: record)
-                    // on tap to update the selected data
-                    //                        .onTapGesture {
-                    //                            MenuToUpdate = menu
-                    //                        }
+        
+            
+                ForEach(MenuList) { record in
+                    if isSameDay(date1: currentDate, date2: record.today){
+                        Menucell(menu: record)
+                            
+                    }
                 }
-                
-            }
-        }
+            
         
         
         

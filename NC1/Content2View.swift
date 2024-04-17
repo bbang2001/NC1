@@ -4,7 +4,7 @@
 //
 //  Created by 리 on 4/15/24.
 //
-
+//
 import SwiftUI
 
 struct Content2View: View {

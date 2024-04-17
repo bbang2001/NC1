@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		100946432BCCB90C00C2D697 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100946422BCCB90C00C2D697 /* CustomDatePicker.swift */; };
 		100946452BCCCE8500C2D697 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100946442BCCCE8500C2D697 /* Home.swift */; };
+		101080522BCF5AC800D0103B /* AddMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101080512BCF5AC800D0103B /* AddMenu.swift */; };
 		10386D942BC7B462008A061E /* NC1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10386D932BC7B462008A061E /* NC1App.swift */; };
 		10386D962BC7B462008A061E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10386D952BC7B462008A061E /* ContentView.swift */; };
 		10386D982BC7B462008A061E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10386D972BC7B462008A061E /* Model.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		100946422BCCB90C00C2D697 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		100946442BCCCE8500C2D697 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		101080512BCF5AC800D0103B /* AddMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenu.swift; sourceTree = "<group>"; };
 		10386D902BC7B462008A061E /* NC1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10386D932BC7B462008A061E /* NC1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC1App.swift; sourceTree = "<group>"; };
 		10386D952BC7B462008A061E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,15 +86,16 @@
 		10386D922BC7B462008A061E /* NC1 */ = {
 			isa = PBXGroup;
 			children = (
-				100946422BCCB90C00C2D697 /* CustomDatePicker.swift */,
-				100946442BCCCE8500C2D697 /* Home.swift */,
-				10E511242BCCF11400AA434A /* Content2View.swift */,
 				10386D932BC7B462008A061E /* NC1App.swift */,
+				10386D952BC7B462008A061E /* ContentView.swift */,
 				106600AC2BC7FE9000CC61E6 /* MainView.swift */,
 				10E587D52BCABBA500BA2C59 /* DateSelectionView.swift */,
+				100946422BCCB90C00C2D697 /* CustomDatePicker.swift */,
+				101080512BCF5AC800D0103B /* AddMenu.swift */,
 				106B07D42BCE83F500B0EF4A /* MenuCell.swift */,
 				106B07D62BCE843600B0EF4A /* StoredData.swift */,
-				10386D952BC7B462008A061E /* ContentView.swift */,
+				100946442BCCCE8500C2D697 /* Home.swift */,
+				10E511242BCCF11400AA434A /* Content2View.swift */,
 				10386D992BC7B463008A061E /* Assets.xcassets */,
 				10386D9B2BC7B463008A061E /* Preview Content */,
 			);
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10386D962BC7B462008A061E /* ContentView.swift in Sources */,
+				101080522BCF5AC800D0103B /* AddMenu.swift in Sources */,
 				10386D982BC7B462008A061E /* Model.swift in Sources */,
 				10A2F3D12BCD0D960047FBC3 /* Task.swift in Sources */,
 				100946432BCCB90C00C2D697 /* CustomDatePicker.swift in Sources */,
