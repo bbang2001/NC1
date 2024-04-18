@@ -11,10 +11,12 @@ import SwiftData
 //입력된 거 보여주는
 struct ReadMenu: View {
     let menu: TodayRecords
-    
+
     var body: some View {
         
         ScrollView{
+            
+            
             VStack(alignment: .leading, spacing: 10) {
             
                 Section(header: Text("밥")
@@ -96,7 +98,7 @@ struct ReadMenu: View {
                         })
                         
                     })
-                
+
             }
             
         }

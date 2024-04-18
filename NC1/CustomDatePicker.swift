@@ -10,7 +10,6 @@ import SwiftData
 
 struct CustomDatePicker: View {
     @State var currentDate : Date = Date()
-    
     //Month update on arrow button clicks-
     @State var currentMonth: Int = 0
     @Environment(\.modelContext) var context
@@ -138,10 +137,14 @@ struct CustomDatePicker: View {
                     
                     ForEach(MenuList) { record in
                         if isSameDay(date1: value.date, date2: record.today){
-                            Circle()    //도장
-                                .fill(isSameDay(date1: record.today, date2: currentDate ) ? .white :Color(.green))
+                            
+                            Image("쿵 도장")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25, height: 25)
+//                            Circle()
+//                            .fill(isSameDay(date1: record.today, date2: currentDate ) ? .white :Color(.green))
                                 
-                                    .frame(width: 8, height: 8)
                                 
                         }
                     }

@@ -17,9 +17,8 @@ struct Home: View {
         ScrollView(.vertical, showsIndicators: false) {
             
             VStack(spacing: 20){
-                
-            //    CustomDatePicker(currentDate: $currentDate)
-                CustomDatePicker(currentDate: currentDate)
+
+                  CustomDatePicker(currentDate: currentDate)
             }
             .padding(.vertical)
         }

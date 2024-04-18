@@ -13,15 +13,25 @@ struct StoredDateView: View {
     @Binding var currentDate: Date
     @Environment(\.modelContext) var context
     @Query(sort: \TodayRecords.menu1) var MenuList: [TodayRecords]
+//    @State private var MenuToUpdate : TodayRecords?
     
     var body: some View{
-        
-                ForEach(MenuList) { record in
-                    if isSameDay(date1: currentDate, date2: record.today){  //현재 클릭한 날짜랑, 등록한 날짜랑
-                        ReadMenu(menu: record)
-                            
-                    }
+       
+        List{
+            ForEach(MenuList) { record in
+                if isSameDay(date1: currentDate, date2: record.today){  //현재 클릭한 날짜랑, 등록한 날짜랑
+                    ReadMenu(menu: record)
                 }
+            }
+            .onDelete { indexSet in
+                               for index in indexSet {
+                                   context.delete(MenuList[index])
+                               }
+                           }
+            
+        }
+        .listStyle(DefaultListStyle())
+        
         
     }
     
